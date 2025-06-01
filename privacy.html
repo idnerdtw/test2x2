@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test2x2 - Privacy Policy / 隱私權政策</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Microsoft JhengHei', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            color: #2980b9;
+        }
+        
+        .language-toggle {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #3498db;
+            border-radius: 5px;
+        }
+        
+        .language-toggle button {
+            background-color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle button:hover {
+            background-color: #ecf0f1;
+        }
+        
+        .language-toggle button.active {
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        .language-section {
+            display: none;
+        }
+        
+        .language-section.active {
+            display: block;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .app-info {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .disclaimer {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .contact {
+            background-color: #d1ecf1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function showLanguage(lang) {
+            document.querySelectorAll('.language-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.language-toggle button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(lang).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Test2x2 App</a>
+        
+        <div class="header">
+            <h1>Privacy Policy / 隱私權政策</h1>
+            <p>For Test2x2 Statistical Calculator App</p>
+        </div>
+
+        <div class="language-toggle">
+            <button onclick="showLanguage('english')" class="active">English</button>
+            <button onclick="showLanguage('chinese')">繁體中文</button>
+        </div>
+
+        <!-- English Version -->
+        <div id="english" class="language-section active">
+            <div class="app-info">
+                <strong>App Name:</strong> Test2x2<br>
+                <strong>App Type:</strong> Statistical Calculator<br>
+                <strong>Last Updated:</strong> June 1, 2025<br>
+                <strong>Effective Date:</strong> June 1, 2025
+            </div>
+
+            <h2>1. Introduction</h2>
+            <p>Test2x2 is a statistical calculator application designed for educational purposes. This app calculates Fisher's exact test, chi-square test, sensitivity, specificity, positive predictive value (PPV), negative predictive value (NPV), and diagnostic odds ratio with 95% confidence intervals based on 2×2 contingency table inputs.</p>
+
+            <h2>2. Data Collection and Privacy</h2>
+            <p><strong>We do not collect, store, transmit, or share any personal data or user information.</strong></p>
+            
+            <ul>
+                <li>No personal information is requested or collected</li>
+                <li>No user accounts or registration required</li>
+                <li>No data is transmitted to external servers</li>
+                <li>All calculations are performed locally on your device</li>
+                <li>No analytics, tracking, or advertising services are used</li>
+                <li>No cookies or persistent storage of user data</li>
+            </ul>
+
+            <h2>3. App Functionality</h2>
+            <p>Test2x2 provides the following statistical calculations:</p>
+            <ul>
+                <li>Fisher's exact test</li>
+                <li>Chi-square test</li>
+                <li>Sensitivity and Specificity</li>
+                <li>Positive Predictive Value (PPV)</li>
+                <li>Negative Predictive Value (NPV)</li>
+                <li>Diagnostic Odds Ratio</li>
+                <li>95% Confidence Intervals for all calculations</li>
+            </ul>
+
+            <div class="disclaimer">
+                <h2>4. Important Disclaimer</h2>
+                <p><strong>Educational Use Only:</strong> Test2x2 is designed for educational purposes and provides a quick overview of contingency table calculations.</p>
+                
+                <p><strong>Not for Publication:</strong> The calculation results from this app should NOT be used for:</p>
+                <ul>
+                    <li>Publishing data in scientific papers</li>
+                    <li>Scientific writing or research publications</li>
+                    <li>Clinical decision making</li>
+                    <li>Professional statistical analysis</li>
+                </ul>
+                
+                <p><strong>Validation Required:</strong> All results must be validated using standard statistical software such as R, SPSS, SAS, or other professional statistical programs before use in any formal analysis.</p>
+            </div>
+
+            <h2>5. Age Restrictions</h2>
+            <p>This app is suitable for all ages. As no personal data is collected, there are no special privacy considerations for users under 13 years of age.</p>
+
+            <h2>6. Third-Party Services</h2>
+            <p>Test2x2 does not integrate with any third-party services, analytics platforms, or advertising networks. The app operates entirely offline on your device.</p>
+
+            <h2>7. Data Security</h2>
+            <p>Since no data is collected, stored, or transmitted, there are no data security risks associated with using Test2x2. All calculations remain on your device.</p>
+
+            <h2>8. Changes to This Privacy Policy</h2>
+            <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last Updated" date. Continued use of the app after changes constitutes acceptance of the new privacy policy.</p>
+
+            <h2>9. Contact Information</h2>
+            <div class="contact">
+                <p>If you have any questions about this privacy policy or the Test2x2 app, please contact us:</p>
+                <p><strong>Email:</strong> test2x2app@gmail.com</p>
+                <p><strong>Developer:</strong> Test2x2 Development Team</p>
+                <p><strong>Response Time:</strong> We typically respond within 48-72 hours</p>
+            </div>
+
+            <h2>10. Governing Law</h2>
+            <p>This privacy policy is governed by the laws of the Republic of China (Taiwan). Any disputes arising from this privacy policy or the use of the Test2x2 app will be resolved in the competent courts of Taiwan.</p>
+        </div>
+
+        <!-- Chinese Version -->
+        <div id="chinese" class="language-section">
+            <div class="app-info">
+                <strong>應用程式名稱：</strong> Test2x2<br>
+                <strong>應用程式類型：</strong> 統計計算器<br>
+                <strong>最後更新：</strong> 2025年6月1日<br>
+                <strong>生效日期：</strong> 2025年6月1日
+            </div>
+
+            <h2>1. 簡介</h2>
+            <p>Test2x2 是一個專為教育目的設計的統計計算應用程式。本應用程式基於 2×2 列聯表輸入，計算費雪精確檢定、卡方檢定、敏感度、特異度、陽性預測值(PPV)、陰性預測值(NPV)和診斷勝算比，並提供95%信賴區間。</p>
+
+            <h2>2. 資料收集與隱私</h2>
+            <p><strong>我們不收集、儲存、傳輸或分享任何個人資料或使用者資訊。</strong></p>
+            
+            <ul>
+                <li>不要求或收集任何個人資訊</li>
+                <li>不需要使用者帳戶或註冊</li>
+                <li>不向外部伺服器傳輸任何資料</li>
+                <li>所有計算都在您的裝置上本地執行</li>
+                <li>不使用任何分析、追蹤或廣告服務</li>
+                <li>不使用 cookies 或持久性使用者資料儲存</li>
+            </ul>
+
+            <h2>3. 應用程式功能</h2>
+            <p>Test2x2 提供以下統計計算功能：</p>
+            <ul>
+                <li>費雪精確檢定</li>
+                <li>卡方檢定</li>
+                <li>敏感度與特異度</li>
+                <li>陽性預測值 (PPV)</li>
+                <li>陰性預測值 (NPV)</li>
+                <li>診斷勝算比</li>
+                <li>所有計算的95%信賴區間</li>
+            </ul>
+
+            <div class="disclaimer">
+                <h2>4. 重要免責聲明</h2>
+                <p><strong>僅供教育使用：</strong> Test2x2 專為教育目的設計，提供列聯表計算的快速概覽。</p>
+                
+                <p><strong>不得用於發表：</strong> 本應用程式的計算結果不應用於：</p>
+                <ul>
+                    <li>科學論文中發表資料</li>
+                    <li>科學寫作或研究發表</li>
+                    <li>臨床決策制定</li>
+                    <li>專業統計分析</li>
+                </ul>
+                
+                <p><strong>需要驗證：</strong> 在任何正式分析中使用前，所有結果都必須使用標準統計軟體（如 R、SPSS、SAS 或其他專業統計程式）進行驗證。</p>
+            </div>
+
+            <h2>5. 年齡限制</h2>
+            <p>本應用程式適合所有年齡使用。由於不收集個人資料，對於13歲以下使用者沒有特殊的隱私考量。</p>
+
+            <h2>6. 第三方服務</h2>
+            <p>Test2x2 不整合任何第三方服務、分析平台或廣告網路。本應用程式完全在您的裝置上離線運作。</p>
+
+            <h2>7. 資料安全</h2>
+            <p>由於不收集、儲存或傳輸任何資料，使用 Test2x2 不存在資料安全風險。所有計算都保留在您的裝置上。</p>
+
+            <h2>8. 隱私權政策變更</h2>
+            <p>我們可能會不時更新此隱私權政策。任何變更都會在此頁面上發布，並更新「最後更新」日期。在變更後繼續使用應用程式即表示接受新的隱私權政策。</p>
+
+            <h2>9. 聯絡資訊</h2>
+            <div class="contact">
+                <p>如果您對此隱私權政策或 Test2x2 應用程式有任何疑問，請聯絡我們：</p>
+                <p><strong>電子郵件：</strong> test2x2app@gmail.com</p>
+                <p><strong>開發者：</strong> Test2x2 開發團隊</p>
+                <p><strong>回應時間：</strong> 我們通常在48-72小時內回應</p>
+            </div>
+
+            <h2
