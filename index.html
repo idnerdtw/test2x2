@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test2x2 - Statistical Calculator App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft JhengHei', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .tagline {
+            font-size: 1.4em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .language-toggle {
+            margin: 20px 0;
+        }
+        
+        .language-toggle button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .language-toggle button.active {
+            background: #2c3e50;
+        }
+        
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .language-content {
+            display: none;
+        }
+        
+        .language-content.active {
+            display: block;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .download-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .download-button.github {
+            background: linear-gradient(45deg, #333, #555);
+            box-shadow: 0 4px 15px rgba(51, 51, 51, 0.3);
+        }
+        
+        .disclaimer-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .footer-links {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #f39c12;
+        }
+        
+        .screenshot-placeholder {
+            background: #e9ecef;
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-style: italic;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .tagline {
+                font-size: 1.1em;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script>
+        function showLanguage(lang) {
+            document.querySelectorAll('.language-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.language-toggle button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(lang).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Test2x2</h1>
+                <p class="tagline">Easy-to-Use Statistical Calculator for 2×2 Contingency Tables</p>
+                
+                <div class="language-toggle">
+                    <button onclick="showLanguage('english')" class="active">English</button>
+                    <button onclick="showLanguage('chinese')">繁體中文</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- English Content -->
+        <div id="english" class="language-content active">
+            <div class="content-section">
+                <h2>🧮 What is Test2x2?</h2>
+                <p>Test2x2 is an easy-to-use statistical calculator designed specifically for analyzing 2×2 contingency tables. Perfect for medical professionals, researchers, students, and anyone working with diagnostic statistics.</p>
+                
+                <div class="screenshot-placeholder">
+                    📱 App Screenshots Coming Soon
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>✨ Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>🔬 Statistical Tests</h3>
+                        <p>Fisher's exact test and Chi-square test with accurate p-values and test statistics</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📊 Diagnostic Metrics</h3>
+                        <p>Calculate sensitivity, specificity, PPV, NPV, and diagnostic odds ratio</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📈 Confidence Intervals</h3>
+                        <p>95% confidence intervals for all calculated statistics</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🎓 Educational Focus</h3>
+                        <p>Perfect for learning and teaching statistical concepts</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📱 Mobile Optimized</h3>
+                        <p>Clean, intuitive interface designed for mobile devices</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🔒 Privacy First</h3>
+                        <p>No data collection, all calculations performed locally</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="disclaimer-box">
+                <h3>⚠️ Important Notice</h3>
+                <p><strong>Educational Use Only:</strong> This app is designed for educational purposes and quick statistical overviews. For scientific publications or professional analysis, please validate all results using standard statistical software such as R, SPSS, or SAS.</p>
+            </div>
+
+            <div class="content-section download-section">
+                <h2>📲 Download Test2x2</h2>
+                <p>Get started with statistical analysis today!</p>
+                
+                <a href="#" class="download-button">
+                    📱 Download from Google Play
+                </a>
+                <a href="https://github.com/idnerd/test2x2" class="download-button github">
+                    💻 View Source Code
+                </a>
+            </div>
+        </div>
+
+        <!-- Chinese Content -->
+        <div id="chinese" class="language-content">
+            <div class="content-section">
+                <h2>🧮 什麼是 Test2x2？</h2>
+                <p>Test2x2 是一個易於使用的統計計算器，專為分析 2×2 列聯表而設計。非常適合醫療專業人員、研究人員、學生以及任何從事診斷統計工作的人使用。</p>
+                
+                <div class="screenshot-placeholder">
+                    📱 應用程式截圖即將推出
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>✨ 主要功能</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>🔬 統計檢定</h3>
+                        <p>費雪精確檢定和卡方檢定，提供準確的 p 值和檢定統計量</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📊 診斷指標</h3>
+                        <p>計算敏感度、特異度、PPV、NPV 和診斷勝算比</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📈 信賴區間</h3>
+                        <p>所有計算統計量的 95% 信賴區間</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🎓 教育導向</h3>
+                        <p>非常適合學習和教授統計概念</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📱 行動裝置優化</h3>
+                        <p>專為行動裝置設計的簡潔直觀介面</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🔒 隱私優先</h3>
+                        <p>不收集資料，所有計算都在本地執行</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="disclaimer-box">
+                <h3>⚠️ 重要提醒</h3>
+                <p><strong>僅供教育使用：</strong> 本應用程式專為教育目的和快速統計概覽而設計。如需用於科學發表或專業分析，請使用標準統計軟體（如 R、SPSS 或 SAS）驗證所有結果。</p>
+            </div>
+
+            <div class="content-section download-section">
+                <h2>📲 下載 Test2x2</h2>
+                <p>立即開始進行統計分析！</p>
+                
+                <a href="#" class="download-button">
+                    📱 從 Google Play 下載
+                </a>
+                <a href="https://github.com/idnerd/test2x2" class="download-button github">
+                    💻 查看原始碼
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy / 隱私權政策</a>
+            <a href="mailto:test2x2app@gmail.com">Contact / 聯絡我們</a>
+            <a href="https://github.com/idnerd/test2x2">GitHub</a>
+        </div>
+    </div>
+</body>
+</html>
